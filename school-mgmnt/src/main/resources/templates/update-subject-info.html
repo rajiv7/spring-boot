@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html layout:decorate="~{fragments/layout}">
+  <head>
+    <title>Manage Subject</title>
+  </head>
+  <body>
+    <div class='container' layout:fragment="content">
+		<form action="#" th:object="${entity}" th:action="@{/subject/} + *{refId}" method="post">
+	     	<input type="hidden" th:field="*{refId}" />
+	     <table>
+	     <tr>
+			<td width="10%">Name :</td>
+				
+			<td width="90%" align="left"><input type="text" th:field="*{name}" disabled='disabled' /></td>
+								
+		</tr>
+		<tr>
+			<td>Short Name : 	</td>
+				
+			<td><input type="text" th:field="*{shortName}" disabled='disabled' /></td>
+									
+		</tr>
+		
+		<tr>
+			<td> Remarks :	</td>
+				
+			<td><textarea row=5 cols=180 th:field="*{remarks}" disabled='disabled'></textarea></td>
+									
+		</tr>
+		
+		
+		
+		<tr>
+		<td>	</td>
+		<td >
+	              <input class="btn btn-default btn-primary" type="button" value="Edit" id='btnEdit'/>
+	              <input type='submit' style='display:none;' class="btn btn-success" id='btnSubmitForm' value='Save'/>
+	              <span><a th:href="@{'/subject.html'}">Cancel</a></span>
+	              
+	            </td>
+	        </tr>
+	        
+		</table>
+	     </form>
+        <hr>      
+    </div>
+    <th:block layout:fragment="script">
+		<script type='text/javascript'>
+	    $(document).ready(function(){
+	    	$('#btnEdit').click(function(){
+	    		$(this).hide();
+	    		$('#btnSubmitForm').show();
+	    		$('#shortName').attr('disabled', false);
+	    		$('#remarks').attr('disabled', false);
+	    	});
+	    });
+	    </script>
+   </th:block>
+  </body>
+</html>

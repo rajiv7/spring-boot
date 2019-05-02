@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    	<nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark" th:fragment="header">
+      <a class="navbar-brand" href="#">Offcanvas navbar</a>
+      <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Dashboard <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/section.html">
+				Manage Sections
+			</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/subject.html">
+				Manage Subjects 
+			</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/login.html">Login</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+        </ul>
+        <form class="form-inline">
+		    <div class="input-group input-group-sm">
+		    	<input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+			  	<div class="input-group-append">
+			    	<span class="input-group-text" id="inputGroup-sizing-sm">Search</span>
+			  	</div>
+			</div>  
+		</form>
+      </div>
+    </nav> 	
+  </body>
+</html>

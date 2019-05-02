@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html layout:decorate="~{fragments/layout}">
+  <head>
+    <title>Create Subject</title>
+  </head>
+  <body>
+    <div class='container' layout:fragment="content">
+		<form action="#" th:object="${entity}" th:action="@{/subject/create.html}" method="post">
+	     	<input type="hidden" th:field="*{refId}" />
+	     <table>
+	     <tr>
+			<td width="10%">Name :</td>
+				
+			<td width="90%" align="left"><input type="text" th:field="*{name}" /></td>
+								
+		</tr>
+		<tr>
+			<td>Short Name : 	</td>
+				
+			<td><input type="text" th:field="*{shortName}" /></td>
+									
+		</tr>
+		
+		<tr>
+			<td> Remarks :	</td>
+				
+			<td><textarea row=5 cols=180 th:field="*{remarks}"></textarea></td>
+									
+		</tr>
+		
+		
+		
+		<tr>
+		<td>	</td>
+		<td >
+	              <input type='submit' class="btn btn-success" value='Create'/>
+	              <span><a th:href="@{'/subject.html'}">Cancel</a></span>
+	            </td>
+	        </tr>
+	        
+		</table>
+	     </form>
+        <hr>      
+    </div>
+  </body>
+</html>

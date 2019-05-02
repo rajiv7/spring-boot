@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html layout:decorate="~{fragments/layout}">
+  <head>
+    <title>Manage Section</title>
+  </head>
+  <body>
+    <div class='container' layout:fragment="content">
+		<form action="#" th:object="${entity}" th:action="@{/section/} + *{refId}" method="post">
+	     	<input type="hidden" th:field="*{refId}" />
+	     <table>
+	     <tr>
+			<td width="10%">Name :</td>
+				
+			<td width="90%" align="left">
+				<input type="text" th:field="*{name}" th:unless="${isNewRecord}" disabled='disabled'/>
+				<input type="text" th:field="*{name}" th:if="${isNewRecord}"/>
+			</td>
+		</tr>
+		<tr>
+			<td> Remarks : 	</td>
+			<td>
+				<textarea row=5 cols=180 th:field="*{remarks}" th:unless="${isNewRecord}" disabled='disabled'></textarea>
+				<textarea row=5 cols=180 th:field="*{remarks}" th:if="${isNewRecord}"></textarea>
+			</td>
+		</tr>
+		<tr>
+		<td>	</td>
+			<td >
+	              <input th:unless="${isNewRecord}" class="btn btn-default btn-primary" type="button" value="Edit" id='btnEdit'/>
+	              <input th:unless="${isNewRecord}" type='submit' style='display:none;' class="btn btn-success" id='btnSubmitForm' value='Save'/>
+	              
+	              <input th:if="${isNewRecord}" type='submit' class="btn btn-success" id='btnSubmitForm' value='Create'/>
+	              <span><a th:href="@{'/section.html'}">Cancel</a></span>
+				</td>
+	        </tr>
+	        
+		</table>
+	     </form>
+        <hr>      
+    </div>
+    <th:block layout:fragment="script">
+		<script type='text/javascript'>
+	    $(document).ready(function(){
+	    	$('#btnEdit').click(function(){
+	    		$(this).hide();
+	    		$('#btnSubmitForm').show();
+	    		$('#remarks').attr('disabled', false);
+	    	});
+	    });
+	    </script>
+   </th:block>
+  </body>
+</html>

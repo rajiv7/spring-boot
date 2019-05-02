@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html layout:decorate="~{fragments/layout}">
+<head>
+	<title>Manage Subjects</title>
+</head>
+<body>
+<div class='container' layout:fragment="content">
+	<div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Short Name</th>
+			<th>Remarks</th>
+			<th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="entity : ${resultCol}"> 
+          <td th:text="${entityStat.count}"></td>
+          <td th:text="${entity.name}"></td>
+          <td th:text="${entity.shortName}"></td>  
+          <td th:text="${entity.remarks}"></td> 
+          <td>
+	   		<span><a th:href="@{'/subject/' + ${entity.refId}} + '.html'">View</a></span>  
+	   </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <span><a th:href="@{'/subject/create.html'}">Create</a></span>
+<hr>      
+</div>
+</body>
+</html>

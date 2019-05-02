@@ -1,0 +1,16 @@
+# Database Settings
+spring:
+  jmx: 
+    enabled: false
+  datasource:
+    default-auto-commit: false
+  jpa:
+    open-in-view: false
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comments: true
+        format_sql: true
